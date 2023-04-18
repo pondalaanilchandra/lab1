@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url(res.jpg);
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #218c74;
+    padding: 15px 10%;
+    padding-left: 500px;
+    color: white;
+    font-size: 25px;
+    
+
+}
+
+
+.container {
+    margin: 80px auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 50%;
+    height: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: aliceblue;
+    padding: 20px 10px;
+    border-radius: 10px;
+}
+
+.main-text {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+
+.container-child {
+    color: white;
+    font-family: 'Baloo Tamma 2', cursive;
+    width: 45%;
+    height: 500px;
+    padding: 40px 20px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: rgba(0, 0, 0, 2);
+    border-radius: 10px;
+    text-align: center;
+    
+}
+
+.container-child label {
+    text-align: left;
+    float: left;
+    font-size: 23px;
+}
+
+input {
+    width: 100%;
+    padding: 8px 8px;
+    border: none;
+    border-radius: 5px;
+}
+
+button {
+    font-size: 1.35vw;
+    font-family: 'Baloo Tamma 2', cursive;
+    width: 100%;
+    max-width: 800px;
+    border-radius: 50px;
+    border: none;
+    color: white;
+    background-color: #e84118;
+}
+
+p {
+    text-align: center;
+}
+
+.data-collect {
+    width: 20%;
+    max-width: 200px;
+    padding: 0px 10px;
+    margin-top: 30px;
+    font-family: 'Baloo Tamma 2', cursive;
+    background-color: #ff7b00;
+}
+
+footer {
+    font-family: sans-serif;
+    color: white;
+    padding: 5px 10px;
+    text-align: center;
+    background-color: black;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+table{
+    border: 1px solid black;
+    background-color: aqua;
+    border-collapse: collapse;
+    width: 100%;
+    color: black;
+    font-family: monospace;
+    font-size: 25px;
+    text-align: left;
+    border-spacing: 10px;
+}
+
+    </style>
+    <title>Restaurant Bill Generator</title>
+  </head>
+  <body>
+    <header style="text-align: center;">Restaurant Bill Generator</header>
+    <div class="container">
+      
+      <form>
+        <div class="item">
+          <label for="item1">Burger ($5.99):</label>
+          <input type="number" id="item1" name="item1" value="0" min="0">
+        </div>
+        <div class="item">
+          <label for="item2">Pizza ($9.99):</label>
+          <input type="number" id="item2" name="item2" value="0" min="0">
+        </div>
+        <div class="item">
+          <label for="item3">Salad ($4.99):</label>
+          <input type="number" id="item3" name="item3" value="0" min="0">
+        </div>
+        <div class="item">
+          <label for="item4">Pasta ($7.99):</label>
+          <input type="number" id="item4" name="item4" value="0" min="0">
+        </div>
+        <div class="item">
+          <label for="item5">Sandwich ($6.99):</label>
+          <input type="number" id="item5" name="item5" value="0" min="0">
+        </div>
+        <div class="item">
+          <label for="item6">Fries ($2.99):</label>
+          <input type="number" id="item6" name="item6" value="0" min="0">
+        </div>
+        <button type="button" onclick="calculateTotal()">Calculate Bill</button>
+      </form>
+      <div id="total"></div>
+    </div>
+    <script>
+    function calculateTotal() {
+  var item1 = parseFloat(document.getElementById("item1").value);
+  var item2 = parseFloat(document.getElementById("item2").value);
+  var item3 = parseFloat(document.getElementById("item3").value);
+  var item4 = parseFloat(document.getElementById("item4").value);
+  var item5 = parseFloat(document.getElementById("item5").value);
+  var item6 = parseFloat(document.getElementById("item6").value);
+  var burgerCost = item1 * 5.99;
+  var pizzaCost = item2 * 9.99;
+  var saladCost = item3 * 4.99;
+  var pastaCost = item4 * 7.99;
+  var sandwichCost = item5 * 6.99;
+  var friesCost = item6 * 2.99;
+  var total = burgerCost + pizzaCost + saladCost + pastaCost + sandwichCost + friesCost;
+
+  var table = "<table><thead><tr><th>Item</th><th>Quantity</th><th>Cost</th></tr></thead><tbody>";
+  if (item1 > 0) {
+    table += "<tr><td>Burger</td><td>" + item1 + "</td><td>$" + burgerCost.toFixed(2) + "</td></tr>";
+  }
+  if (item2 > 0) {
+    table += "<tr><td>Pizza</td><td>" + item2 + "</td><td>$" + pizzaCost.toFixed(2) + "</td></tr>";
+  }
+  if (item3 > 0) {
+    table += "<tr><td>Salad</td><td>" + item3 + "</td><td>$" + saladCost.toFixed(2) + "</td></tr>";
+  }
+  if (item4 > 0) {
+    table += "<tr><td>Pasta</td><td>" + item4 + "</td><td>$" + pastaCost.toFixed(2) + "</td></tr>";
+  }
+  if (item5 > 0) {
+    table += "<tr><td>Sandwich</td><td>" + item5 + "</td><td>$" + sandwichCost.toFixed(2) + "</td></tr>";
+  }
+  if (item6 > 0) {
+    table += "<tr><td>Fries</td><td>" + item6 + "</td><td>$" + friesCost.toFixed(2) + "</td></tr>";
+  }
+  table += "<tr><td colspan='2'>Total</td><td>$" + total.toFixed(2) + "</td></tr>";
+  table += "</tbody></table>";
+  document.getElementById("total").innerHTML = table;
+}
+
+    </script>
+  </body>
+</html>

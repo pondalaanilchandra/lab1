@@ -1,0 +1,70 @@
+<html>
+<style>
+body{
+
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;    
+        background-color: aqua;
+        font-size: 20px;
+}
+a{
+  text-decoration: none;
+  color: black;
+}
+.dropbtn {
+  background-color: transparent;
+  border: none;
+  padding: 0%;
+  font-size: 20px;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+    width: 200px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: lightskyblue;}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+
+</style>
+</head>
+<h3>contents</h3>
+<ol>
+<a href ="listinfo.html" target="right"><li>
+Lists</li>
+<a href="tableinfo.html" target="right"><li>
+Tables</li>
+<a href="registrationform.html" target="right"><li>
+Registration Form</li></a>
+<li>
+<div class="dropdown">
+        <button class="dropbtn">Javascript Application</button>
+        <div class="dropdown-content">
+        <a href="guess.html" target="right">Guessing Game</a> 
+          <a href="game.html" target="right">Rock Paper Scissors</a>
+          <a href="bill.html" target="right">Bill Generator</a>
+        </div>
+      </div>
+      </li>
+</ol>
+</body>
+</html>

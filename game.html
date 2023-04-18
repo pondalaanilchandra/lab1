@@ -1,0 +1,224 @@
+<html>
+  <head>
+    <title>Rock Paper Scissors</title>
+    <style>
+      * {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+body {
+  background: #eee;
+  background-image: url(rock.webp);
+}
+.container .top_info {
+  width: 80%;
+  padding: 20px;
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+  font-family: Tahoma;
+  font-size: 20px;
+  margin-bottom: 40px;
+  color: #51f93e;
+}
+.container .top_info > h1 {
+  margin-bottom: 20px;
+}
+.container .top_info > p {
+  padding: 5px;
+  font-size: 30px;
+}
+.container .top_info > p > span {
+  color: red;
+  font-weight: bold;
+}
+.container .top_info > button {
+  padding: 15px;
+  width: 80%;
+  max-width: 300px;
+  font-size: 20px;
+  display: block;
+  margin: 0 auto;
+  margin-top: 20px;
+  background: aqua;
+  color: #fff;
+  border-radius: 4px;
+  user-select: none;
+  cursor: pointer;
+  
+}
+.game_container{
+  background: #ddd;
+  padding: 20px;
+  border-radius: 4px;
+  box-shadow: 0 0 20px #888;
+  width: 80%;
+  margin: 0 auto;
+  max-width: 700px;
+  text-align: center;
+  font-family: Tahoma;
+  user-select: none;
+}
+.game_container .player {
+  background: #51f93e!important;
+  box-shadow: 0 0 20px #888;
+  transform: scale(1.02);
+}
+.game_container .computer {
+  background: #ff2121!important;
+  box-shadow: 0 0 20px #888;
+  transform: scale(1.02);
+}
+.game_container > div {
+  display: inline-block;
+  margin: 10px;
+  text-align: center;
+  padding: 10px;
+  width: calc(100% / 3 - 10px * 2 - 4px - 10px * 2);
+  overflow: hidden;
+  border-radius: 4px;
+  transition: all .5s;
+  cursor: pointer;
+  user-select: none;
+}
+.game_container > div:hover {
+  background: #ccc;
+  box-shadow: 0 0 20px #888;
+  transform: scale(1.02);
+}
+.game_container > div > img {
+  width: 80%;
+  display: block;
+  text-align: center;
+  margin: 0 auto;
+}
+.game_container > div > span {
+  font-size: 32px;
+  font-weight: bold;
+  display: block;
+  margin-top: 20px;
+}
+    </style>
+    
+  </head>
+<body onload="newGame()">
+    
+  <div class="container">
+      <div class="top_info">
+          <h1>Rock Paper Scissors</h1>
+          <p>You <span id="score_a"></span></p>
+          <p>Computer <span id="score_b"></span></p>
+          
+          <button onclick="newGame()">New Game</button>
+      </div>
+      
+      <div class="game_container">
+          <div id="pedra" class="" onclick="pickOption(1)">
+              <img src="rock1.webp">
+              <span>Rock</span>
+          </div>
+          <div id="papel" class="" onclick="pickOption(2)">
+              <img src="paper.png">
+              <span>Paper</span>
+          </div>
+          <div id="tesoura" class="" onclick="pickOption(3)">
+              <img src="scr.png">
+              <span>Scissors</span>
+          </div>
+      </div>
+  </div>
+</body>
+<script>
+  var pedra = document.getElementById("pedra")
+var papel = document.getElementById("papel")
+var tesoura = document.getElementById("tesoura")
+
+var playerScore = document.getElementById("score_a")
+var computerScore = document.getElementById("score_b")
+
+var player = 0
+var computer = 0
+var ingame = 0
+var choice
+var computerChoice
+
+function randomChoice() {
+    var randomChoice = Math.floor(Math.random() * 3) + 1 //gerando o numero aleatorio | generating a random number
+    computerChoice = randomChoice //definindo a variavel da escolha do computador | defining the variable of the computer choice
+}
+function pickOption(o) {
+    if (choice == undefined) {
+        choice = o
+        
+        if (o == 1) {
+            pedra.classList = "player"
+        } else if (o == 2) {
+            papel.classList = "player"
+        } else {
+            tesoura.classList = "player"
+        }
+        
+        if (computerChoice == undefined) {
+            randomChoice()
+            while (computerChoice == choice) {
+                randomChoice()
+            }
+            
+            if (computerChoice == 1) {
+                pedra.classList = "computer"
+            } else if (computerChoice == 2) {
+                papel.classList = "computer"
+            } else {
+                tesoura.classList = "computer"
+            }
+        }
+        
+        getWin(choice, computerChoice) //Funcao para verificar se ganhou passando a escolha do jogador e do computador | Function to verify if won passing the player choice and the computer choice
+    } else {
+        alert("You've already played!") //Se a pessoa ja jogou, vem um alerta falando que ela não pode jogar de novo | If player already played, comes a alert saying that can't play again
+    }
+    ingame = 0
+}
+
+function getWin(p, c) {
+    //Verifica a opção do jogador e do computador para pegar o ganhador
+  
+    //Verify the player choice and the computer choose to see who won
+    if (ingame == 1) {
+        
+        if (p == 1 && c == 2) {
+            computer ++
+        } else if (p == 1 && c == 3) {
+            player ++
+        } else if (p == 2 && c == 1) {
+            player ++
+        } else if (p == 2 && c == 3) {
+            computer ++
+        } else if (p == 3 && c == 1) {
+            computer ++
+        } else if (p == 3 && c == 2) {
+            player ++
+        }
+        
+        playerScore.innerHTML = player
+        computerScore.innerHTML = computer
+    }
+}
+
+function newGame() {
+    if (ingame == 0) {
+        ingame = 1
+        choice = undefined
+        computerChoice = undefined
+        
+        pedra.classList = ""
+        papel.classList = ""
+        tesoura.classList = ""
+        
+        playerScore.innerHTML = player
+        computerScore.innerHTML = computer
+    }
+}
+</script>
+</html>
