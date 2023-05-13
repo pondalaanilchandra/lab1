@@ -5,7 +5,7 @@
     <title></title>
 
     <style>
-      *{
+            *{
   padding: 0;
   margin: 0;
   box-sizing: border-box;
@@ -118,7 +118,29 @@ body{
     display: none;
   }
 }
-table {
+        .b2
+        {
+          margin:auto;
+          width:30%;
+          border:2px solid #4267B2;
+          margin-top: 170px;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+          padding-top: 10px;
+          padding-bottom: 10px;
+          /* padding-left: -10px; */
+          background-color:white;
+          border-radius: 15px;
+        }
+
+
+      tr,td
+      {
+         padding: 10px;
+      }
+      .ex{
+        margin-left: 65px;
+      }
+      table {
         border-collapse: collapse;
         width: 50%;
         margin: auto;
@@ -206,25 +228,21 @@ table {
         </div>
         <div class="menu">
           <ul class="menu1">
-            <li><a href="/" >Home</a></li>
-     <li><a href="/login" class="active">Sign In</a></li>
-     <li><a href="/tables">Time Tables</a></li>
+            <li><a href="/">Home</a></li>
+               <li><a href="/login" class="active">Sign In</a></li>
+               <li><a href="/tables">Time Tables</a></li>
           </ul>
            </div>
       </div>
     </header> 
     <br>
-      <div class = "b2">
+      <div class = "b2">  
         <form action="" method = "post">
-         <h2> Sign in as Admin:</h2>
-         <br>
-          <label for="username">Username:</label>
-                    
-                    <input type="text" name = "username" required = "required" placeholder="Enter username ">
-              
+          <h2 style="text-align:center;">Sign In</h2> 
+                   <label for="email">Email:</label>
+                    <input type="email" name = "email" required = "required" placeholder="Enter your Email Address ">
                     <label for="password">Password:</label>
-                    <input type="password" name="password" required = "required" placeholder="Enter your password">
-                 
+                    <input type="password" name="password" required = "required" placeholder="Enter correct Password">
                     <input type="submit" value = "submit" style="background-color:#4267B2;color:white;display:block;margin:auto;">
                  
         </form>

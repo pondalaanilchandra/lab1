@@ -5,7 +5,7 @@
     <title></title>
 
     <style>
-      *{
+            *{
   padding: 0;
   margin: 0;
   box-sizing: border-box;
@@ -118,7 +118,18 @@ body{
     display: none;
   }
 }
-table {
+       .b2
+       {
+        padding-top: 10px;
+       }
+       .b2 tr,td
+       {
+        padding:10px;
+       }
+       .ex{
+        margin-left: 430px;
+       }
+       table {
         border-collapse: collapse;
         width: 50%;
         margin: auto;
@@ -150,84 +161,93 @@ table {
         margin-left: 0px;
         float: right;
       }
-      body {
-			background-color: lightgrey;
-			font-family: Arial, sans-serif;
-			color: #fff;
-		}
-		form {
-			background-color: #fff;
-			border-radius: 5px;
-			padding: 20px;
-			width: 400px;
-			margin: 0 auto;
-			margin-top: 30px;
-			color: black;
-		}
-		h2 {
-			margin-top: 0;
-		}
-		label {
-			display: block;
-			margin-bottom: 10px;
-		}
-		input[type="text"], input[type="email"], input[type="password"], input[type="date"], input[type="file"] {
-			width: 100%;
-			padding: 10px;
-			border-radius: 5px;
-			margin-bottom: 20px;
-			box-sizing: border-box;
-			font-size: 16px;
-			border-color: #1877f2;
-		}
-		body
-{
-    margin: 0;
+      #post {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 300px;
+    margin: 10px;
+    padding: 30px;
+    background-color: white;
+    border-radius: 5%;
+    box-shadow: 5px 5px 5px 5px grey;
+    transition: 0.3s;
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+    font-size: 40px;
+    font-weight: bold;
+    text-align: center;
+    width: 300px;
+    margin-left: 600px;
 }
-		input[type="submit"] {
-			background-color: #1877f2;
-			color: #fff;
-			border: none;
-			border-radius: 5px;
-			padding: 10px 20px;
-			cursor: pointer;
-			font-size: 16px;
-		}
-		input[type="submit"]:hover {
-			background-color: #145da0;
-		}
+select
+{
+  width: 150px;
+  height: 30px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  padding: 5px;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+#submit{
+  width: 150px;
+  height: 30px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  padding: 5px;
+  margin-bottom: 10px;
+  font-size: 16px;
+  background-color: #142440;
+  color: white;
+}
+
    </style>
   </head>
   <body>
-   <header class="head-area">
+    <header class="head-area">
       <div class="header-container">
         <div class="mobile-nav">
           <i class="fas fa-bars"></i>
         </div>
         <div class="menu">
           <ul class="menu1">
-            <li><a href="/" >Home</a></li>
-     <li><a href="/login" class="active">Sign In</a></li>
-     <li><a href="/tables">Time Tables</a></li>
+            <li><a href="/">Home</a></li>
+               <li><a href="/login">Sign In</a></li>
+               <li><a href="/tables" class="active">Time Tables</a></li>
+        
           </ul>
            </div>
       </div>
     </header> 
     <br>
       <div class = "b2">
-        <form action="" method = "post">
-         <h2> Sign in as Admin:</h2>
-         <br>
-          <label for="username">Username:</label>
+        <form action="" method = "post" id="post">
+               
+                    <label for="Year">Year</label>
                     
-                    <input type="text" name = "username" required = "required" placeholder="Enter username ">
-              
-                    <label for="password">Password:</label>
-                    <input type="password" name="password" required = "required" placeholder="Enter your password">
-                 
-                    <input type="submit" value = "submit" style="background-color:#4267B2;color:white;display:block;margin:auto;">
-                 
+                     <select name="Year" id="year" style="width: 150px;">
+                       <option value="0">Select the Year</option>
+                    <option value="1">1 year</option>
+                     <option value="2">2 year</option>
+                     <option value="3">3 year</option>
+                      <option value="4">4 year</option>
+                      </select>
+                      <label for="Section">Section</label>
+                      
+                       <select name="Section" id="Section" style="width: 150px;">
+                         <option value="0">Select the Section</option>
+                      <option value="A">A Section</option>
+                       <option value="B">B Section</option>
+                       <option value="C">C Section</option>
+                        </select>
+                            <input type="submit" id="submit" name = "submit" value = "submit" style="background-color:#4267B2;color:white;display:block;margin:auto;">
+                        
         </form>
-       </div>
+      </div>
+     
+      
   </body>
 </html>

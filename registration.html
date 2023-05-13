@@ -3,9 +3,9 @@
   <head>
     <meta charset="utf-8">
     <title></title>
-
-    <style>
-      *{
+  
+    <style media="screen">
+            *{
   padding: 0;
   margin: 0;
   box-sizing: border-box;
@@ -118,7 +118,42 @@ body{
     display: none;
   }
 }
-table {
+      .main
+      {
+        margin:auto;
+        color:blue;
+        width:50%;
+
+      }
+      table
+      {
+        margin:auto;
+      }
+      td
+      {
+        padding:5px;
+        text-align:left;
+
+        font-size:30px;
+      }
+      input[type = text],input[type = email],input[type = password],textarea
+      {
+        width:100%;
+        padding: 10px 10px;
+        margin:8px 0;
+        border:2px solid red;
+      }
+      input[type = submit]
+      {
+        background-color: red;
+        border: none;
+        color: white;
+        padding: 10px 10px;
+        text-decoration: none;
+        margin: 4px 2px;
+        cursor: pointer;
+      }
+      table {
         border-collapse: collapse;
         width: 50%;
         margin: auto;
@@ -150,84 +185,63 @@ table {
         margin-left: 0px;
         float: right;
       }
-      body {
-			background-color: lightgrey;
-			font-family: Arial, sans-serif;
-			color: #fff;
-		}
-		form {
-			background-color: #fff;
-			border-radius: 5px;
-			padding: 20px;
-			width: 400px;
-			margin: 0 auto;
-			margin-top: 30px;
-			color: black;
-		}
-		h2 {
-			margin-top: 0;
-		}
-		label {
-			display: block;
-			margin-bottom: 10px;
-		}
-		input[type="text"], input[type="email"], input[type="password"], input[type="date"], input[type="file"] {
-			width: 100%;
-			padding: 10px;
-			border-radius: 5px;
-			margin-bottom: 20px;
-			box-sizing: border-box;
-			font-size: 16px;
-			border-color: #1877f2;
-		}
-		body
-{
-    margin: 0;
-}
-		input[type="submit"] {
-			background-color: #1877f2;
-			color: #fff;
-			border: none;
-			border-radius: 5px;
-			padding: 10px 20px;
-			cursor: pointer;
-			font-size: 16px;
-		}
-		input[type="submit"]:hover {
-			background-color: #145da0;
-		}
-   </style>
+    </style>
   </head>
   <body>
-   <header class="head-area">
+    <header class="head-area">
       <div class="header-container">
         <div class="mobile-nav">
           <i class="fas fa-bars"></i>
         </div>
         <div class="menu">
           <ul class="menu1">
-            <li><a href="/" >Home</a></li>
-     <li><a href="/login" class="active">Sign In</a></li>
-     <li><a href="/tables">Time Tables</a></li>
+            <li><a href="/">Home</a></li>
+            <li><a href="/register" class="active">Register</a></li>
+             <li><a href="/login">Login</a></li>
+       
           </ul>
            </div>
       </div>
     </header> 
     <br>
-      <div class = "b2">
-        <form action="" method = "post">
-         <h2> Sign in as Admin:</h2>
-         <br>
-          <label for="username">Username:</label>
-                    
-                    <input type="text" name = "username" required = "required" placeholder="Enter username ">
-              
-                    <label for="password">Password:</label>
-                    <input type="password" name="password" required = "required" placeholder="Enter your password">
-                 
-                    <input type="submit" value = "submit" style="background-color:#4267B2;color:white;display:block;margin:auto;">
-                 
-        </form>
-       </div>
+      
+      <div class="b2">
+           <div class="main">
+             <h1 style =  "text-align:center;">Sign Up</h1>
+           <form class="" action="" method="post">
+             <table>
+               <tr>
+                 <td>Name</td>
+                 <td>
+                   <input type="text" name="name" value="" placeholder="Enter your name">
+                 </td>
+               </tr>
+               <tr>
+                 <td>Username</td>
+                 <td>
+                   <input type="text" name="uname" value="" placeholder="Enter your username">
+                 </td>
+               </tr>
+               <tr>
+                 <td>Password</td>
+                 <td>
+                   <input type="password" name="password" value="" placeholder="Enter your Password">
+                 </td>
+               </tr>
+               <tr>
+                 <td>Email</td>
+                 <td>
+                   <input type="email" name="email" value="" placeholder="Enter your email">
+                 </td>
+               </tr>
+               <tr>
+                 <td>
+                   <input type="submit" name="submit" value="submit">
+                 </td>
+               </tr>
+             </table>
+           </form>
+           </div>
+      </div>
   </body>
 </html>
